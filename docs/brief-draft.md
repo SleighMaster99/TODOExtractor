@@ -320,4 +320,41 @@ Todo Extractor를 Visual Studio 생태계를 넘어 다양한 개발 환경으�
 
 ---
 
+## Constraints & Assumptions
+
+### Constraints
+
+- **Budget:**
+  - 초기 개발: 자체 개발 (무료, 시간 투자만)
+  - 외부 서비스 비용 없음 (GitHub/GitLab API 무료 티어 활용)
+  - VS Marketplace 배포 비용 없음
+
+- **Timeline:**
+  - MVP 개발 기간: 3-4개월
+  - 첫 베타 릴리스: 2개월 내
+  - 정식 출시: 4개월 내
+
+- **Resources:**
+  - 개발자: 1-2명 (파트타임 가능)
+  - 디자이너: 없음 (기본 WPF 디자인 활용)
+  - QA: 초기 사용자 베타 테스트 의존
+
+- **Technical:**
+  - Windows 플랫폼만 지원 (VS 2022가 Windows 전용)
+  - .NET Framework/Core 버전 제약
+  - Visual Studio SDK API 제한 사항
+  - GitHub/GitLab API rate limiting (인증 시 시간당 5,000 요청)
+
+### Key Assumptions
+
+- VS 2022 사용자들은 GitHub 또는 GitLab을 이슈 트래커로 사용한다고 가정
+- 개발자들은 이미 TODO 주석을 작성하는 습관이 있다고 가정
+- 사용자들은 API 토큰 생성 및 설정에 대한 기본 지식이 있다고 가정
+- 대부분의 프로젝트는 10,000개 미만의 파일로 구성되어 있다고 가정
+- 사용자들은 C# 기반 프로젝트를 주로 작업한다고 가정 (다른 언어도 지원 예정)
+- 초기 사용자는 주로 개인 개발자이며, 팀 기능은 Phase 2에서 수요가 증가할 것으로 가정
+- VS Marketplace를 통한 배포가 주요 유통 채널이 될 것으로 가정
+
+---
+
 <!-- 이후 섹션은 작성 중입니다 -->
