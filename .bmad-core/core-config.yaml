@@ -1,3 +1,7 @@
+# 언어 설정
+language: ko
+responseLanguage: 한국어
+
 markdownExploder: true
 qa:
   qaLocation: docs/qa
