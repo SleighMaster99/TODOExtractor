@@ -264,4 +264,60 @@ Todo Extractor를 Visual Studio 생태계를 넘어 다양한 개발 환경으�
 
 ---
 
+## Technical Considerations
+
+### Platform Requirements
+
+- **Target Platforms:** Visual Studio 2022 (Windows)
+- **Minimum VS Version:** Visual Studio 2022 17.0 이상
+- **Performance Requirements:**
+  - 10,000개 파일 프로젝트에서 스캔 시간 30초 이내
+  - UI 응답 시간 1초 이내
+  - 메모리 사용량 200MB 이하
+
+### Technology Preferences
+
+- **Frontend (VS Extension UI):**
+  - WPF (Windows Presentation Foundation) - VS 확장 표준
+  - XAML을 통한 UI 디자인
+  - MVVM 패턴 적용
+
+- **Backend (Extension Logic):**
+  - C# (.NET Framework 4.8 또는 .NET 6+)
+  - Visual Studio SDK
+  - Roslyn API (코드 분석용, 선택적)
+
+- **Database:**
+  - SQLite (로컬 설정 저장 및 DB 출력 형식 지원)
+  - 설정 파일은 JSON 형식으로도 지원
+
+- **External APIs:**
+  - GitHub REST API v3 / GraphQL API
+  - GitLab REST API v4
+  - Octokit.NET (GitHub .NET SDK)
+
+### Architecture Considerations
+
+- **Repository Structure:**
+  - 단일 리포지토리 (모놀리식)
+  - 확장 프로그램 프로젝트 + 단위 테스트 프로젝트
+
+- **Service Architecture:**
+  - 플러그인 아키텍처로 설계하여 향후 이슈 트래커 추가 용이
+  - 인터페이스 기반 설계 (IIssueTracker, IFileExporter 등)
+  - 비동기 처리 (async/await) 활용
+
+- **Integration Requirements:**
+  - Visual Studio의 Solution Explorer와 통합
+  - VS 설정 시스템과 연동
+  - 출력 창(Output Window) 활용
+
+- **Security/Compliance:**
+  - API 토큰은 Windows Credential Manager에 암호화 저장
+  - HTTPS 통신만 허용
+  - 민감 정보 로깅 금지
+  - GDPR 준수 (사용자 데이터 최소 수집)
+
+---
+
 <!-- 이후 섹션은 작성 중입니다 -->
